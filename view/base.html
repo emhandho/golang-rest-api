@@ -1,0 +1,112 @@
+{{define "base.html"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{template "title" .}}</title>
+  <meta http-equiv="'X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="static/fonts/beyond_the_mountains-webfonts.css" type="text/css">
+  <link rel="stylesheet" href="static/plugin-frameworks/bootstrap.min.css">
+  <link rel="stylesheet" href="static/plugin-frameworks/swiper.css">
+  <link rel="stylesheet" href="static/fonts/ionicons.css">
+  <link rel="stylesheet" href="static/common/styles.css">
+</head>
+
+<body>
+  <header class="fixed-top">
+    <div class="container">
+      <a class="logo" href="/">
+        <img src="static/images/heading_logo.png" alt="Logo">
+        <b style="font-size: 35px; font-family: Georgia;">Secret Garden</b>
+      </a>
+
+      <div class="right-area">
+        <h6>
+          <a class="plr-20 color-white btn-fill-primary" href="#">Order : +62 123 456 7891</a>
+        </h6>
+      </div>
+
+      <a class="menu-nav-icon" data-menu="#main-menu" href="#"> <i class="ion-navicon"></i></a>
+      <ul class="main-menu font-mountainsre" id="main-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#Service">Service</a></li>
+        <li><a href="#Contact">Contact</a></li>
+      </ul>
+
+      <div class="clearfix">
+
+      </div>
+
+    </div>
+  </header>
+  {{template "body" .}}
+  <footer id="Contact" class="pb-50 pt-70 pos-relative">
+    <div class="pos-top triangle-bottom">
+    </div>
+    <div class="container-fluid">
+      <a href="#"><img class="heading-img" src="static/images/heading_logo.png" alt="Logo" width="50" height="50"></a>
+      <div class="pt-30">
+        <p class="underline-secondary"><b>Address : </b></p>
+        <p>Jalan Panglima Sudirman 2021</p>
+      </div>
+      <div class="pt-30">
+        <p class="underline-secondary"><b>Phone : </b></p>
+        <a href="tel:+62 123 456 78910">+62 123 456 78910</a>
+      </div>
+      <div class="pt-30">
+        <p class="underline-secondary"><b>Email : </b></p>
+        <a href="mailto:ridhonrmn@gmail.com">ridhonrmn@gmail.com</a>
+      </div>
+
+      <ul class="icon mt-30">
+        <li><a href="#"> <i class="ion-social-pinterest"></i></a></li>
+        <li><a href="#"> <i class="ion-social-facebook"></i></a></li>
+        <li><a href="#"> <i class="ion-social-twitter"></i></a></li>
+        <li><a href="#"> <i class="ion-social-instagram"></i></a></li>
+        <li><a href="#"> <i class="ion-social-github"></i></a></li>
+      </ul>
+
+      <p class="color-light font-9 mt-50 mt-sm-30">
+        Copyright &copy;
+        <script>document.write(new Date().getFullYear());</script> All Right reserved | this template is made with Pride
+        <i class="ion-android-happy" aria-hidden="true"></i>
+      </p>
+    </div>
+  </footer>
+  <script src="static/plugin-frameworks/jquery-3.2.1.min.js"></script>
+  <script src="static/plugin-frameworks/bootstrap.min.js"></script>
+  <script src="static/plugin-frameworks/swiper.js"></script>
+  <script src="static/common/scripts.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Add smooth scrolling to all links
+      $("a").on('click', function (event) {
+
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function () {
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+  </script>
+</body>
+
+</html>
+{{end}}

@@ -1,0 +1,129 @@
+{{define "title"}}
+Secret Garden Fraternite | {{index . "name"}}
+{{end}}
+
+{{define "body"}}
+<section class="bg-1 h-900x main-slider pos-relative">
+    <div class="triangle-up pos-bottom"></div>
+    <div class="container h-100">
+        <div class="dplay-tbl">
+            <div class="dplay-tbl-cell center-text color-white">
+                <h5><b>THE BEST IN INDONESIA</b></h5>
+                <h1 class="mt-30 mb-15">Pizza & Pasta</h1>
+                <h5><a href="#Menu" class="btn-primaryc plr-25"><b>Today's Menu</b></a></h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="About" class="story-area left-text center-sm-text pos-relative">
+    <div class="abs-tbl bg-2 w-20 z--1 dplay-md-none"></div>
+    <div class="abs-tbr bg-3 w-20 z--1 dplay-md-none"></div>
+    <div class="container">
+        <div class="heading">
+            <img class="heading-img" src="static/images/heading_logo.png" alt="">
+            <h2>Our Story</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="mb-30">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, nam veritatis ratione asperiores,
+                    maxime molestias nesciunt assumenda excepturi tempora facere velit, eligendi eos accusantium odio
+                    doloremque aspernatur veniam quasi commodi.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quisquam, pariatur eius, dolor minus
+                    explicabo repellat sequi magnam temporibus distinctio impedit aut itaque maiores fugit. Vero
+                    praesentium deleniti consectetur omnis?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel id placeat fuga facere voluptatem
+                    exercitationem numquam veritatis, ad, iure nemo facilis voluptates natus, molestias debitis
+                    dignissimos deleniti reiciendis eveniet eum?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque necessitatibus, asperiores, quia
+                    consequuntur suscipit omnis molestiae modi a assumenda illo fugiat veniam ducimus nostrum ipsam. Qui
+                    tenetur corrupti voluptatem fugiat.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <p class="mb-30" style="padding-right: 35px;">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, corrupti. Nesciunt voluptate quis
+                    consequuntur quae omnis esse nam voluptatum veritatis quaerat illum! Eius iusto facilis assumenda
+                    quaerat animi quasi pariatur.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, nam natus. Voluptatibus dicta
+                    asperiores accusantium, blanditiis iusto quaerat quis. Quae delectus commodi aliquid temporibus enim
+                    id,
+                    amet illum nam vel?
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Service" class="story-area bg-seller color-white pos-relative">
+    <div class="pos-bottom triangle-up"> </div>
+    <div class="pos-top triangle-bottom"> </div>
+    <div class="container">
+        <div class="heading">
+            <img class="heading-img" src="static/images/heading_logo.png" alt="">
+            <h2>Best Sellers</h2>
+        </div>
+        <div class="row">
+            {{range .popData}}
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="center-text mb-30">
+                    <div class="img-200x mlr-auto pos-relative">
+                        <img src="static/images/{{.Image_url}}" alt="" style="height: 200px; width: 200px;">
+                    </div>
+                    <h5 class="mt-20">{{.Name}}</h5>
+                    <h4 class="mt-5"><b>Rp. {{.Cost}}</b></h4>
+                    <h4 class="mt-5"><b>Total Order : {{.Total_order}}</b></h4>
+                    <h6 class="mt-20"><a href="/order_menu?id={{.Id_menu}}&names={{.Name}}&image={{.Image_url}}"
+                            class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
+                </div>
+            </div>
+            {{end}}
+        </div>
+
+        <h6 class="center-text mt-40 mt-sm-20 mb-30"><a href="#Menu" class="btn-primaryc plr-25"><b>Today's Menu</b></a>
+        </h6>
+    </div>
+</section>
+
+<section id="Menu">
+    <div class="container">
+        <div class="heading">
+            <img class="heading-img" src="static/images/heading_logo.png" alt="">
+            <h2>Our Menu</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="selecton brdr-b-primary mb-70">
+                    <li><a class="active" href="#" data-select="*"><b>ALL</b></a></li>
+                    <li><a href="#" data-select="Pizza"><b>PIZZA</b></a></li>
+                    <li><a href="#" data-select="Pasta"><b>PASTA</b></a></li>
+                    <li><a href="#" data-select="Appetizer"><b>APPATIZER</b></a></li>
+                    <li><a href="#" data-select="Dessert"><b>DESSERT</b></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            {{range .data}}
+            <div class="col-md-6 food-menu {{.Type}}">
+                <div class="sided-90x mv-30">
+                    <div class="s-left"><img class="br-3" src="static/images/{{.Image_url}}" alt="Menu image"></div>
+                    <div class="s-right">
+                        <h5 class="mb-10">
+                            <b>{{.Name}}</b>
+                            <b class="color-primary float-right">Rp.{{.Cost}}</b>
+                        </h5>
+                        <p class="pr-70">{{.Description}}</p>
+                        <a href="/order_menu?id={{.Id_menu}}&names={{.Name}}&image={{.Image_url}}"
+                            class="btn-brdr-primary plr-25"><b>Order</b></a>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</section>
+
+{{end}}

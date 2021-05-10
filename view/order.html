@@ -1,0 +1,31 @@
+{{define "title"}}
+Secret Garden Fraternite | {{index . "name"}}
+{{end}}
+
+{{define "body"}}
+<section class="story-area left-text center-sm-text">
+    <div class="container">
+        <div class="heading">
+            <img class="" style="margin-top: 100px; height: 200px; width: 200px;" src="static/images/{{.image}}" alt="">
+            <h2>{{.names}}</h2>
+            <h5 class="mt-10 mb-30">Fill the form bellow to order</h5>
+        </div>
+
+        <form class="form-style-1 placeholder-1" action="/order" method="POST">
+            <div class="row">
+                <input class="mb-20" name="id_order" type="hidden" value="{{.id}}">
+                <div class="col-md-6"> <input class="mb-20" name="order_name" type="text" placeholder="Your Name"></div>
+                <div class="col-md-6"> <input class="mb-20" name="phone_number" type="text" placeholder="Your Phone">
+                </div>
+                <div class="col-md-12"> <input class="mb-20" name="amount_order" type="number"
+                        placeholder="Total Order"></div>
+                <div class="col-md-12"> <textarea class="h-200x ptb-20" name="address"
+                        placeholder="Your Address"></textarea></div>
+            </div>
+            <h6 class="center-text mtb-30"><button class="btn-primaryc plr-25" type="submit"><b>Order
+                        Now</b></button>
+            </h6>
+        </form>
+    </div>
+</section>
+{{end}}
